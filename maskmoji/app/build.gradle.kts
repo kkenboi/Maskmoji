@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    implementation("com.google.mlkit:face-detection:16.1.7")
+    implementation("io.coil-kt:coil-compose:2.4.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
