@@ -121,12 +121,23 @@ fun drawCirclesOnFaces(context: Context, uri: Uri, faces: List<com.google.mlkit.
         alpha = 200 // 少し透過
     }
 
+    val emojiBitmap = BitmapFactory.decodeResource(context.resources, R.drawable.smile)
+
+    // 顔ごとに重ねる
     for (face in faces) {
-        val box = face.boundingBox
-        val centerX = box.exactCenterX()
-        val centerY = box.exactCenterY()
-        val radius = max(box.width(), box.height()) / 2f
-        canvas.drawCircle(centerX, centerY, radius, paint)
+        val bounds = face.boundingBox
+        val scaledEmoji = Bitmap.createScaledBitmap(
+            emojiBitmap,
+            bounds.width(),
+            bounds.height(),
+            false
+        )
+        canvas.drawBitmap(
+            scaledEmoji,
+            bounds.left.toFloat(),
+            bounds.top.toFloat(),
+            null
+        )
     }
 
     return mutableBitmap
