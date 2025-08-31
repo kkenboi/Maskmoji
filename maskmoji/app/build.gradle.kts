@@ -43,6 +43,9 @@ dependencies {
     implementation("com.google.mlkit:face-detection:16.1.7")
     implementation("io.coil-kt:coil-compose:2.4.0")
 
+    implementation("com.google.mlkit:text-recognition:16.0.1")
+    implementation("com.google.mlkit:object-detection:17.0.2")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
